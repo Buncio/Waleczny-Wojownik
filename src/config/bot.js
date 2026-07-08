@@ -2,30 +2,29 @@ import { logger } from '../utils/logger.js';
 
 export const botConfig = {
   // =========================
-  // BOT PRESENCE (what users see under the bot name)
+  // STATUS BOTA
   // =========================
-  // `status` options:
-  // - "online"    = green dot
-  // - "idle"      = yellow moon
-  // - "dnd"       = red do-not-disturb
-  // - "invisible" = appears offline
+  // Opcje `status`:
+  // - "online"    = zielona kropka
+  // - "idle"      = żółty księżyc
+  // - "dnd"       = czerwone nie przeszkadzać
+  // - "invisible" = szara kropka
   presence: {
-    // Current online state shown on Discord.
+    // Opcja wyświetlana na discordzie.
     status: "online",
 
-    // Activity lines shown under the bot name.
-    // `type` number mapping from Discord:
-    // 0 = Playing
-    // 1 = Streaming
-    // 2 = Listening
-    // 3 = Watching
-    // 4 = Custom
+    // Nazwa aktywności.
+    // 0 = Gra
+    // 1 = Streamuje
+    // 2 = Słucha
+    // 3 = Ogląda
+    // 4 = Customowe
     // 5 = Competing
     activities: [
       {
-        // Text users will see (example: "Playing /help | Titan Bot").
+        // Tekst statusu
         name: "Kanclerskie Siły Zbrojne",
-        // Activity type number (0 = Playing).
+        // Numer nazwy aktywności (0 = Gra).
         type: 3,
       },
     ],
@@ -35,21 +34,19 @@ export const botConfig = {
   // COMMAND BEHAVIOR
   // =========================
   commands: {
-    // Bot owner user IDs (comma-separated in OWNER_IDS env var).
-    // Owners can access owner/admin-level bot commands.
+    // ID roli z dostępem do poleceń administratora
     owners: process.env.OWNER_IDS?.split(",") || [],
 
-    // Default wait time between command uses (in seconds).
+    // Czas między poleceniami (w sekundach)
     defaultCooldown: 3,
 
-    // If true, old commands are removed before re-registering.
+    // Jeżeli prawda, stare polecenia są usuwane przed ponownym wpisaniem.
     deleteCommands: false,
 
     // Optional server ID used for testing slash commands quickly.
     testGuildId: process.env.TEST_GUILD_ID,
 
-    // Command prefix for text-based commands (e.g., "!" for "!ping").
-    // Supports both slash commands and prefix commands.
+    // Prefix komend
     prefix: process.env.PREFIX || "!",
   },
 
@@ -57,12 +54,12 @@ export const botConfig = {
   // APPLICATIONS SYSTEM
   // =========================
   applications: {
-    // Default questions shown when someone fills out an application.
-    defaultQuestions: [
-      { question: "What is your name?", required: true },
-      { question: "How old are you?", required: true },
-      { question: "Why do you want to join?", required: true },
-    ],
+    // Domyślne pytania po zrobieniu wniosku.
+//    defaultQuestions: [
+//      { question: "Jak masz na imię?", required: true },
+//      { question: "Ile masz lat?", required: true },
+//      { question: "Dlaczego chcesz dołączyć?", required: true },
+//    ],
 
     // Embed colors by application status.
     statusColors: {
@@ -97,7 +94,7 @@ export const botConfig = {
       // Standard status colors for success/error/warning/info messages.
       success: "#57F287",
       error: "#ED4245",
-      warning: "#FEE75C",
+      warning: "#F59127",
       info: "#3498DB",
 
       // Neutral utility colors.
@@ -163,7 +160,7 @@ export const botConfig = {
       // Plural display name.
       namePlural: "coins",
       // Currency symbol shown in balances.
-      symbol: "$",
+      symbol: "PLZ",
     },
 
     // Starting balance for new users.
@@ -214,27 +211,27 @@ export const botConfig = {
       none: {
         emoji: "⚪",
         color: "#95A5A6",
-        label: "None",
+        label: "Nie ważne",
       },
       low: {
         emoji: "🟢",
         color: "#2ECC71",
-        label: "Low",
+        label: "Mało ważne",
       },
       medium: {
         emoji: "🟡",
         color: "#F1C40F",
-        label: "Medium",
+        label: "Średnie",
       },
       high: {
         emoji: "🔴",
         color: "#E74C3C",
-        label: "High",
+        label: "Pilne",
       },
       urgent: {
         emoji: "🚨",
         color: "#E91E63",
-        label: "Urgent",
+        label: "Piorytetowe",
       },
     },
 
@@ -242,10 +239,10 @@ export const botConfig = {
     defaultPriority: "none",
 
     // Category ID where closed tickets are archived.
-    archiveCategory: null,
+    archiveCategory: 1472193726422978702,
 
     // Channel ID where ticket logs are sent.
-    logChannel: null,
+    logChannel: 1420863494324097135,
   },
 
   // =========================
@@ -258,7 +255,7 @@ export const botConfig = {
 
     // Allowed winner count range.
     minimumWinners: 1,
-    maximumWinners: 10,
+    maximumWinners: 1,
 
     // Allowed giveaway duration range in milliseconds.
     // 300000 = 5 minutes.
@@ -281,32 +278,32 @@ export const botConfig = {
     defaultRole: null,
 
     // Channel ID where birthday announcements are posted.
-    announcementChannel: null,
+    announcementChannel: 1473757476066431232,
 
     // Timezone used to calculate birthday dates.
-    timezone: "UTC",
+    timezone: "UTC+2",
   },
 
   // =========================
   // VERIFICATION SETTINGS
   // =========================
-  verification: {
+//  verification: {
     // Message shown when posting the verification panel.
-    defaultMessage: "Click the button below to verify yourself and gain access to the server!",
+//    defaultMessage: "Click the button below to verify yourself and gain access to the server!",
 
     // Text on the verification button.
-    defaultButtonText: "Verify",
+//    defaultButtonText: "Verify",
 
     // Automatic verification behavior.
-    autoVerify: {
+//    autoVerify: {
       // How automatic verification decides who is auto-approved:
       // - "none"        = everyone is auto-verified immediately
       // - "account_age" = account must be older than set days
       // - "server_size" = auto-verify everyone only in smaller servers
-      defaultCriteria: "none",
+//      defaultCriteria: "none",
 
       // Days used when `defaultCriteria` is `account_age`.
-      defaultAccountAgeDays: 7,
+//      defaultAccountAgeDays: 7,
 
       // Member count threshold used when `defaultCriteria` is `server_size`.
       // Example: 1000 means auto-verify if server has fewer than 1000 members.
@@ -359,18 +356,18 @@ export const botConfig = {
   // WELCOME / GOODBYE MESSAGES
   // =========================
   welcome: {
-    // Welcome template posted when a user joins.
-    // Placeholders: {user}, {server}, {memberCount}
+    // Powitanie.
+    // Placeholdery: {user}, {server}, {memberCount}
     defaultWelcomeMessage:
-      "Welcome {user} to {server}! We now have {memberCount} members!",
-    // Goodbye template posted when a user leaves.
-    // Placeholders: {user}, {memberCount}
+      "Witaj {user} Jesteś już {memberCount} na serwerze. Mam nadzieję że nie będziesz się nudził.",
+    // Pożegnanie.
+    // Placeholdery: {user}, {memberCount}
     defaultGoodbyeMessage:
-      "{user} has left the server. We now have {memberCount} members.",
-    // Channel ID for welcome messages.
-    defaultWelcomeChannel: null,
-    // Channel ID for goodbye messages.
-    defaultGoodbyeChannel: null,
+      "Do zobaczenia {user}. Przykro nam że odchodzisz.",
+    // ID kanału do powitań.
+    defaultWelcomeChannel: 1409136857186570413,
+    // ID kanału do pożegnań.
+    defaultGoodbyeChannel: 1409136857186570413,
   },
 
   // =========================
