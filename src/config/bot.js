@@ -55,11 +55,11 @@ export const botConfig = {
   // =========================
   applications: {
     // Domyślne pytania po zrobieniu wniosku.
-//    defaultQuestions: [
-//      { question: "Jak masz na imię?", required: true },
-//      { question: "Ile masz lat?", required: true },
-//      { question: "Dlaczego chcesz dołączyć?", required: true },
-//    ],
+    defaultQuestions: [
+      { question: "Jak masz na imię?", required: true },
+      { question: "Ile masz lat?", required: true },
+      { question: "Dlaczego chcesz dołączyć?", required: true },
+    ],
 
     // Embed colors by application status.
     statusColors: {
@@ -287,23 +287,23 @@ export const botConfig = {
   // =========================
   // VERIFICATION SETTINGS
   // =========================
-//  verification: {
+  verification: {
     // Message shown when posting the verification panel.
-//    defaultMessage: "Click the button below to verify yourself and gain access to the server!",
+    defaultMessage: "Click the button below to verify yourself and gain access to the server!",
 
     // Text on the verification button.
-//    defaultButtonText: "Verify",
+    defaultButtonText: "Verify",
 
     // Automatic verification behavior.
-//    autoVerify: {
+    autoVerify: {
       // How automatic verification decides who is auto-approved:
       // - "none"        = everyone is auto-verified immediately
       // - "account_age" = account must be older than set days
       // - "server_size" = auto-verify everyone only in smaller servers
-//      defaultCriteria: "none",
+      defaultCriteria: "none",
 
       // Days used when `defaultCriteria` is `account_age`.
-//      defaultAccountAgeDays: 7,
+      defaultAccountAgeDays: 7,
 
       // Member count threshold used when `defaultCriteria` is `server_size`.
       // Example: 1000 means auto-verify if server has fewer than 1000 members.
